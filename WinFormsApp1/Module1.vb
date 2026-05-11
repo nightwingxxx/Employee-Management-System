@@ -5,7 +5,7 @@
 
     Public Sub DBconnect()
 
-        CNN.ConnectionString = "Provider=SQLOLEDB.1;Data Source=LAPTOP-9VG92SDQ;Initial Catalog=EmployeeManagement;Integrated Security=SSPI;"
+        CNN.ConnectionString = "Provider=SQLOLEDB.1;Data Source=LAPTOP-5VNB83I5;Initial Catalog=GENETIA;Integrated Security=SSPI;"
 
         CNN.Open()
 

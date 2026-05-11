@@ -47,164 +47,178 @@ Partial Class adminEmployeeControl
         ' Label1
         ' 
         Label1.AutoSize = True
-        Label1.Location = New Point(19, 17)
+        Label1.Location = New Point(22, 23)
         Label1.Name = "Label1"
-        Label1.Size = New Size(67, 15)
+        Label1.Size = New Size(83, 20)
         Label1.TabIndex = 0
         Label1.Text = "First Name:"
         ' 
         ' txtFirstName
         ' 
-        txtFirstName.Location = New Point(87, 14)
+        txtFirstName.Location = New Point(99, 19)
+        txtFirstName.Margin = New Padding(3, 4, 3, 4)
         txtFirstName.Name = "txtFirstName"
-        txtFirstName.Size = New Size(134, 23)
+        txtFirstName.Size = New Size(153, 27)
         txtFirstName.TabIndex = 1
         ' 
         ' dgvEmployees
         ' 
         dgvEmployees.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        dgvEmployees.Location = New Point(0, 150)
+        dgvEmployees.Location = New Point(0, 200)
+        dgvEmployees.Margin = New Padding(3, 4, 3, 4)
         dgvEmployees.Name = "dgvEmployees"
-        dgvEmployees.Size = New Size(776, 244)
+        dgvEmployees.RowHeadersWidth = 51
+        dgvEmployees.Size = New Size(887, 325)
         dgvEmployees.TabIndex = 2
         ' 
         ' txtLastName
         ' 
-        txtLastName.Location = New Point(87, 54)
+        txtLastName.Location = New Point(99, 72)
+        txtLastName.Margin = New Padding(3, 4, 3, 4)
         txtLastName.Name = "txtLastName"
-        txtLastName.Size = New Size(134, 23)
+        txtLastName.Size = New Size(153, 27)
         txtLastName.TabIndex = 4
         ' 
         ' Label2
         ' 
         Label2.AutoSize = True
-        Label2.Location = New Point(19, 57)
+        Label2.Location = New Point(22, 76)
         Label2.Name = "Label2"
-        Label2.Size = New Size(66, 15)
+        Label2.Size = New Size(82, 20)
         Label2.TabIndex = 3
         Label2.Text = "Last Name:"
         ' 
         ' txtPosition
         ' 
-        txtPosition.Location = New Point(87, 99)
+        txtPosition.Margin = New Padding(3, 4, 3, 4)
         txtPosition.Name = "txtPosition"
-        txtPosition.Size = New Size(134, 23)
+        txtPosition.Location = New Point(99, 132)
+        txtPosition.Size = New Size(153, 27)
         txtPosition.TabIndex = 6
         ' 
         ' Label3
         ' 
         Label3.AutoSize = True
-        Label3.Location = New Point(19, 102)
+        Label3.Location = New Point(22, 136)
         Label3.Name = "Label3"
-        Label3.Size = New Size(53, 15)
+        Label3.Size = New Size(64, 20)
         Label3.TabIndex = 5
         Label3.Text = "Position:"
         ' 
         ' txtContactNo
         ' 
-        txtContactNo.Location = New Point(314, 14)
+        txtContactNo.Location = New Point(359, 19)
+        txtContactNo.Margin = New Padding(3, 4, 3, 4)
         txtContactNo.Name = "txtContactNo"
-        txtContactNo.Size = New Size(129, 23)
+        txtContactNo.Size = New Size(147, 27)
         txtContactNo.TabIndex = 8
         ' 
         ' Label4
         ' 
         Label4.AutoSize = True
-        Label4.Location = New Point(246, 17)
+        Label4.Location = New Point(266, 22)
         Label4.Name = "Label4"
-        Label4.Size = New Size(71, 15)
+        Label4.Size = New Size(87, 20)
         Label4.TabIndex = 7
         Label4.Text = "Contact No:"
         ' 
         ' txtEmail
         ' 
-        txtEmail.Location = New Point(314, 57)
+        txtEmail.Location = New Point(359, 76)
+        txtEmail.Margin = New Padding(3, 4, 3, 4)
         txtEmail.Name = "txtEmail"
-        txtEmail.Size = New Size(129, 23)
+        txtEmail.Size = New Size(147, 27)
         txtEmail.TabIndex = 10
         ' 
         ' Label5
         ' 
         Label5.AutoSize = True
-        Label5.Location = New Point(246, 60)
+        Label5.Location = New Point(266, 79)
         Label5.Name = "Label5"
-        Label5.Size = New Size(39, 15)
+        Label5.Size = New Size(49, 20)
         Label5.TabIndex = 9
         Label5.Text = "Email:"
         ' 
         ' txtSalaryRate
         ' 
-        txtSalaryRate.Location = New Point(314, 102)
+        txtSalaryRate.Location = New Point(359, 136)
+        txtSalaryRate.Margin = New Padding(3, 4, 3, 4)
         txtSalaryRate.Name = "txtSalaryRate"
-        txtSalaryRate.Size = New Size(129, 23)
+        txtSalaryRate.Size = New Size(147, 27)
         txtSalaryRate.TabIndex = 12
         ' 
         ' Label6
         ' 
         Label6.AutoSize = True
-        Label6.Location = New Point(246, 105)
+        Label6.Location = New Point(266, 141)
         Label6.Name = "Label6"
-        Label6.Size = New Size(67, 15)
+        Label6.Size = New Size(86, 20)
         Label6.TabIndex = 11
         Label6.Text = "Salary Rate:"
         ' 
         ' cmbDepartment
         ' 
         cmbDepartment.FormattingEnabled = True
-        cmbDepartment.Location = New Point(541, 14)
+        cmbDepartment.Location = New Point(618, 19)
+        cmbDepartment.Margin = New Padding(3, 4, 3, 4)
         cmbDepartment.Name = "cmbDepartment"
-        cmbDepartment.Size = New Size(100, 23)
+        cmbDepartment.Size = New Size(114, 28)
         cmbDepartment.TabIndex = 15
         ' 
         ' Label8
         ' 
         Label8.AutoSize = True
-        Label8.Location = New Point(459, 17)
+        Label8.Location = New Point(525, 23)
         Label8.Name = "Label8"
-        Label8.Size = New Size(73, 15)
+        Label8.Size = New Size(92, 20)
         Label8.TabIndex = 16
         Label8.Text = "Department:"
         ' 
         ' btnAddEmployee
         ' 
-        btnAddEmployee.Location = New Point(672, 14)
+        btnAddEmployee.Location = New Point(748, 19)
+        btnAddEmployee.Margin = New Padding(3, 4, 3, 4)
         btnAddEmployee.Name = "btnAddEmployee"
-        btnAddEmployee.Size = New Size(75, 23)
+        btnAddEmployee.Size = New Size(116, 30)
         btnAddEmployee.TabIndex = 17
         btnAddEmployee.Text = "Add"
         btnAddEmployee.UseVisualStyleBackColor = True
         ' 
         ' btnClearFields
         ' 
-        btnClearFields.Location = New Point(672, 43)
+        btnClearFields.Location = New Point(748, 57)
+        btnClearFields.Margin = New Padding(3, 4, 3, 4)
         btnClearFields.Name = "btnClearFields"
-        btnClearFields.Size = New Size(75, 23)
+        btnClearFields.Size = New Size(116, 31)
         btnClearFields.TabIndex = 18
         btnClearFields.Text = "Clear"
         btnClearFields.UseVisualStyleBackColor = True
         ' 
         ' btnUpdateEmployee
         ' 
-        btnUpdateEmployee.Location = New Point(672, 72)
+        btnUpdateEmployee.Location = New Point(748, 96)
+        btnUpdateEmployee.Margin = New Padding(3, 4, 3, 4)
         btnUpdateEmployee.Name = "btnUpdateEmployee"
-        btnUpdateEmployee.Size = New Size(75, 23)
+        btnUpdateEmployee.Size = New Size(116, 31)
         btnUpdateEmployee.TabIndex = 19
         btnUpdateEmployee.Text = "Update"
         btnUpdateEmployee.UseVisualStyleBackColor = True
         ' 
         ' btnDeleteEmployee
         ' 
-        btnDeleteEmployee.Location = New Point(672, 102)
+        btnDeleteEmployee.Location = New Point(748, 136)
+        btnDeleteEmployee.Margin = New Padding(3, 4, 3, 4)
         btnDeleteEmployee.Name = "btnDeleteEmployee"
-        btnDeleteEmployee.Size = New Size(75, 23)
+        btnDeleteEmployee.Size = New Size(116, 31)
         btnDeleteEmployee.TabIndex = 20
         btnDeleteEmployee.Text = "Delete"
         btnDeleteEmployee.UseVisualStyleBackColor = True
         ' 
-        ' EmployeeControl
+        ' adminEmployeeControl
         ' 
-        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
+        BackColor = SystemColors.Control
         Controls.Add(btnDeleteEmployee)
         Controls.Add(btnUpdateEmployee)
         Controls.Add(btnClearFields)
@@ -224,8 +238,9 @@ Partial Class adminEmployeeControl
         Controls.Add(dgvEmployees)
         Controls.Add(txtFirstName)
         Controls.Add(Label1)
-        Name = "EmployeeControl"
-        Size = New Size(776, 394)
+        Margin = New Padding(3, 4, 3, 4)
+        Name = "adminEmployeeControl"
+        Size = New Size(887, 525)
         CType(dgvEmployees, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
