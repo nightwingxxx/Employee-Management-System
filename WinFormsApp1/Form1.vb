@@ -6,6 +6,12 @@ Public Class Form1
 
     End Sub
 
+    Public Sub ClearLoginFields()
+        username.Clear()
+        password.Clear()
+        username.Focus()
+    End Sub
+
     Private Sub TextBox2_TextChanged(sender As Object, e As EventArgs) Handles password.TextChanged
 
     End Sub
@@ -43,9 +49,9 @@ Public Class Form1
 
             STRSQL = "Select * From Users"
 
-            STRSQL &= vbCrLf & " WHERE username ='" & Replace(username.Text, "'", "''") & "'"
+            STRSQL &= vbCrLf & " WHERE UserName ='" & Replace(username.Text, "'", "''") & "'"
 
-            STRSQL &= vbCrLf & " AND passcode = '" & Replace(password.Text, "'", "''") & "'"
+            STRSQL &= vbCrLf & " AND Passcode = '" & Replace(password.Text, "'", "''") & "'"
 
             RST = CNN.Execute(STRSQL)
 
@@ -54,9 +60,27 @@ Public Class Form1
                 MsgBox("Invalid Credentials")
 
             Else
+                LoginSession.LoggedInUserID = CInt(RST.Fields("UserID").Value)
+                LoginSession.LoggedInUserName = RST.Fields("UserName").Value.ToString()
+                LoginSession.LoggedInRole = RST.Fields("Roles").Value.ToString()
 
-                Form2.Show()
-                Me.Hide()
+                If IsDBNull(RST.Fields("EmployeeID").Value) Then
+                    LoginSession.LoggedInEmployeeID = 0
+                Else
+                    LoginSession.LoggedInEmployeeID = CInt(RST.Fields("EmployeeID").Value)
+                End If
+
+                If LoginSession.LoggedInRole = "Admin" Then
+                    Form2.Show()
+                    Me.Hide()
+
+                ElseIf LoginSession.LoggedInRole = "Employee" Then
+                    Form3.Show()
+                    Me.Hide()
+
+                Else
+                    MsgBox("Unknown user role.")
+                End If
 
             End If
 
@@ -65,5 +89,7 @@ Public Class Form1
             MsgBox(MSG)
 
         End If
+
     End Sub
+
 End Class
