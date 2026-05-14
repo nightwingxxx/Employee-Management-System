@@ -131,4 +131,8 @@
         selectedDepartmentID = CInt(row.Cells("DepartmentID").Value)
         pnlDept_txtDeptName.Text = row.Cells("DepartmentName").Value.ToString
     End Sub
+
+    Private Sub dgvDepartments_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvDepartments.CellContentClick
+
+    End Sub
 End Class

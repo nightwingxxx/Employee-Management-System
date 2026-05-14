@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class adminEmployeeControl
     Inherits System.Windows.Forms.UserControl
 
     'UserControl overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,20 +20,15 @@ Partial Class adminEmployeeControl
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(adminEmployeeControl))
         Label1 = New Label()
-        txtFirstName = New MaskedTextBox()
         dgvEmployees = New DataGridView()
-        txtLastName = New MaskedTextBox()
         Label2 = New Label()
-        txtPosition = New MaskedTextBox()
         Label3 = New Label()
-        txtContactNo = New MaskedTextBox()
         Label4 = New Label()
-        txtEmail = New MaskedTextBox()
         Label5 = New Label()
-        txtSalaryRate = New MaskedTextBox()
         Label6 = New Label()
         cmbDepartment = New ComboBox()
         Label8 = New Label()
@@ -41,117 +36,104 @@ Partial Class adminEmployeeControl
         btnClearFields = New Button()
         btnUpdateEmployee = New Button()
         btnDeleteEmployee = New Button()
+        txtFirstName = New TextBox()
+        txtLastName = New TextBox()
+        txtPosition = New TextBox()
+        txtContactNo = New TextBox()
+        txtEmail = New TextBox()
+        txtSalaryRate = New TextBox()
         CType(dgvEmployees, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' Label1
         ' 
         Label1.AutoSize = True
-        Label1.Location = New Point(19, 17)
+        Label1.BackColor = Color.Transparent
+        Label1.Font = New Font("Arial Rounded MT Bold", 10.2F)
+        Label1.ForeColor = Color.WhiteSmoke
+        Label1.Location = New Point(26, 34)
         Label1.Name = "Label1"
-        Label1.Size = New Size(67, 15)
+        Label1.Size = New Size(103, 20)
         Label1.TabIndex = 0
         Label1.Text = "First Name:"
-        ' 
-        ' txtFirstName
-        ' 
-        txtFirstName.Location = New Point(87, 14)
-        txtFirstName.Name = "txtFirstName"
-        txtFirstName.Size = New Size(134, 23)
-        txtFirstName.TabIndex = 1
         ' 
         ' dgvEmployees
         ' 
         dgvEmployees.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        dgvEmployees.Location = New Point(0, 150)
+        dgvEmployees.Location = New Point(13, 227)
+        dgvEmployees.Margin = New Padding(3, 4, 3, 4)
         dgvEmployees.Name = "dgvEmployees"
-        dgvEmployees.Size = New Size(776, 244)
+        dgvEmployees.RowHeadersWidth = 51
+        dgvEmployees.Size = New Size(923, 312)
         dgvEmployees.TabIndex = 2
-        ' 
-        ' txtLastName
-        ' 
-        txtLastName.Location = New Point(87, 54)
-        txtLastName.Name = "txtLastName"
-        txtLastName.Size = New Size(134, 23)
-        txtLastName.TabIndex = 4
         ' 
         ' Label2
         ' 
         Label2.AutoSize = True
-        Label2.Location = New Point(19, 57)
+        Label2.BackColor = Color.Transparent
+        Label2.Font = New Font("Arial Rounded MT Bold", 10.2F)
+        Label2.ForeColor = Color.WhiteSmoke
+        Label2.Location = New Point(26, 87)
         Label2.Name = "Label2"
-        Label2.Size = New Size(66, 15)
+        Label2.Size = New Size(101, 20)
         Label2.TabIndex = 3
         Label2.Text = "Last Name:"
-        ' 
-        ' txtPosition
-        ' 
-        txtPosition.Location = New Point(87, 99)
-        txtPosition.Name = "txtPosition"
-        txtPosition.Size = New Size(134, 23)
-        txtPosition.TabIndex = 6
         ' 
         ' Label3
         ' 
         Label3.AutoSize = True
-        Label3.Location = New Point(19, 102)
+        Label3.BackColor = Color.Transparent
+        Label3.Font = New Font("Arial Rounded MT Bold", 10.2F)
+        Label3.ForeColor = Color.WhiteSmoke
+        Label3.Location = New Point(26, 147)
         Label3.Name = "Label3"
-        Label3.Size = New Size(53, 15)
+        Label3.Size = New Size(80, 20)
         Label3.TabIndex = 5
         Label3.Text = "Position:"
-        ' 
-        ' txtContactNo
-        ' 
-        txtContactNo.Location = New Point(314, 14)
-        txtContactNo.Name = "txtContactNo"
-        txtContactNo.Size = New Size(129, 23)
-        txtContactNo.TabIndex = 8
         ' 
         ' Label4
         ' 
         Label4.AutoSize = True
-        Label4.Location = New Point(246, 17)
+        Label4.BackColor = Color.Transparent
+        Label4.Font = New Font("Arial Rounded MT Bold", 10.2F)
+        Label4.ForeColor = Color.WhiteSmoke
+        Label4.Location = New Point(303, 35)
         Label4.Name = "Label4"
-        Label4.Size = New Size(71, 15)
+        Label4.Size = New Size(106, 20)
         Label4.TabIndex = 7
         Label4.Text = "Contact No:"
-        ' 
-        ' txtEmail
-        ' 
-        txtEmail.Location = New Point(314, 57)
-        txtEmail.Name = "txtEmail"
-        txtEmail.Size = New Size(129, 23)
-        txtEmail.TabIndex = 10
         ' 
         ' Label5
         ' 
         Label5.AutoSize = True
-        Label5.Location = New Point(246, 60)
+        Label5.BackColor = Color.Transparent
+        Label5.Font = New Font("Arial Rounded MT Bold", 10.2F)
+        Label5.ForeColor = Color.WhiteSmoke
+        Label5.Location = New Point(303, 92)
         Label5.Name = "Label5"
-        Label5.Size = New Size(39, 15)
+        Label5.Size = New Size(60, 20)
         Label5.TabIndex = 9
         Label5.Text = "Email:"
-        ' 
-        ' txtSalaryRate
-        ' 
-        txtSalaryRate.Location = New Point(314, 102)
-        txtSalaryRate.Name = "txtSalaryRate"
-        txtSalaryRate.Size = New Size(129, 23)
-        txtSalaryRate.TabIndex = 12
         ' 
         ' Label6
         ' 
         Label6.AutoSize = True
-        Label6.Location = New Point(246, 105)
+        Label6.BackColor = Color.Transparent
+        Label6.Font = New Font("Arial Rounded MT Bold", 10.2F)
+        Label6.ForeColor = Color.WhiteSmoke
+        Label6.Location = New Point(303, 154)
         Label6.Name = "Label6"
-        Label6.Size = New Size(67, 15)
+        Label6.Size = New Size(108, 20)
         Label6.TabIndex = 11
         Label6.Text = "Salary Rate:"
         ' 
         ' cmbDepartment
         ' 
+        cmbDepartment.BackColor = Color.White
+        cmbDepartment.ForeColor = Color.Black
         cmbDepartment.FormattingEnabled = True
-        cmbDepartment.Location = New Point(541, 14)
+        cmbDepartment.Location = New Point(694, 33)
+        cmbDepartment.Margin = New Padding(3, 4, 3, 4)
         cmbDepartment.Name = "cmbDepartment"
         cmbDepartment.Size = New Size(100, 23)
         cmbDepartment.TabIndex = 15
@@ -159,90 +141,150 @@ Partial Class adminEmployeeControl
         ' Label8
         ' 
         Label8.AutoSize = True
-        Label8.Location = New Point(459, 17)
+        Label8.BackColor = Color.Transparent
+        Label8.Font = New Font("Arial Rounded MT Bold", 10.2F)
+        Label8.ForeColor = Color.WhiteSmoke
+        Label8.Location = New Point(576, 36)
         Label8.Name = "Label8"
-        Label8.Size = New Size(73, 15)
+        Label8.Size = New Size(112, 20)
         Label8.TabIndex = 16
         Label8.Text = "Department:"
         ' 
         ' btnAddEmployee
         ' 
-        btnAddEmployee.Location = New Point(672, 14)
+        btnAddEmployee.BackColor = Color.LightGreen
+        btnAddEmployee.BackgroundImageLayout = ImageLayout.Stretch
+        btnAddEmployee.FlatStyle = FlatStyle.Flat
+        btnAddEmployee.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btnAddEmployee.Location = New Point(814, 34)
+        btnAddEmployee.Margin = New Padding(3, 4, 3, 4)
         btnAddEmployee.Name = "btnAddEmployee"
         btnAddEmployee.Size = New Size(75, 23)
         btnAddEmployee.TabIndex = 17
         btnAddEmployee.Text = "Add"
-        btnAddEmployee.UseVisualStyleBackColor = True
+        btnAddEmployee.UseVisualStyleBackColor = False
         ' 
         ' btnClearFields
         ' 
-        btnClearFields.Location = New Point(672, 43)
+        btnClearFields.BackColor = SystemColors.ControlLight
+        btnClearFields.FlatStyle = FlatStyle.Flat
+        btnClearFields.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold)
+        btnClearFields.Location = New Point(814, 72)
+        btnClearFields.Margin = New Padding(3, 4, 3, 4)
         btnClearFields.Name = "btnClearFields"
         btnClearFields.Size = New Size(75, 23)
         btnClearFields.TabIndex = 18
         btnClearFields.Text = "Clear"
-        btnClearFields.UseVisualStyleBackColor = True
+        btnClearFields.UseVisualStyleBackColor = False
         ' 
         ' btnUpdateEmployee
         ' 
-        btnUpdateEmployee.Location = New Point(672, 72)
+        btnUpdateEmployee.BackColor = Color.Khaki
+        btnUpdateEmployee.FlatStyle = FlatStyle.Flat
+        btnUpdateEmployee.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold)
+        btnUpdateEmployee.Location = New Point(814, 111)
+        btnUpdateEmployee.Margin = New Padding(3, 4, 3, 4)
         btnUpdateEmployee.Name = "btnUpdateEmployee"
         btnUpdateEmployee.Size = New Size(75, 23)
         btnUpdateEmployee.TabIndex = 19
         btnUpdateEmployee.Text = "Update"
-        btnUpdateEmployee.UseVisualStyleBackColor = True
+        btnUpdateEmployee.UseVisualStyleBackColor = False
         ' 
         ' btnDeleteEmployee
         ' 
-        btnDeleteEmployee.Location = New Point(672, 102)
+        btnDeleteEmployee.BackColor = Color.Salmon
+        btnDeleteEmployee.FlatStyle = FlatStyle.Flat
+        btnDeleteEmployee.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold)
+        btnDeleteEmployee.Location = New Point(814, 151)
+        btnDeleteEmployee.Margin = New Padding(3, 4, 3, 4)
         btnDeleteEmployee.Name = "btnDeleteEmployee"
         btnDeleteEmployee.Size = New Size(75, 23)
         btnDeleteEmployee.TabIndex = 20
         btnDeleteEmployee.Text = "Delete"
-        btnDeleteEmployee.UseVisualStyleBackColor = True
+        btnDeleteEmployee.UseVisualStyleBackColor = False
+        ' 
+        ' txtFirstName
+        ' 
+        txtFirstName.Location = New Point(135, 31)
+        txtFirstName.Name = "txtFirstName"
+        txtFirstName.Size = New Size(135, 27)
+        txtFirstName.TabIndex = 21
+        ' 
+        ' txtLastName
+        ' 
+        txtLastName.Location = New Point(135, 85)
+        txtLastName.Name = "txtLastName"
+        txtLastName.Size = New Size(135, 27)
+        txtLastName.TabIndex = 22
+        ' 
+        ' txtPosition
+        ' 
+        txtPosition.Location = New Point(135, 144)
+        txtPosition.Name = "txtPosition"
+        txtPosition.Size = New Size(135, 27)
+        txtPosition.TabIndex = 23
+        ' 
+        ' txtContactNo
+        ' 
+        txtContactNo.Location = New Point(417, 31)
+        txtContactNo.Name = "txtContactNo"
+        txtContactNo.Size = New Size(135, 27)
+        txtContactNo.TabIndex = 24
+        ' 
+        ' txtEmail
+        ' 
+        txtEmail.Location = New Point(417, 85)
+        txtEmail.Name = "txtEmail"
+        txtEmail.Size = New Size(135, 27)
+        txtEmail.TabIndex = 25
+        ' 
+        ' txtSalaryRate
+        ' 
+        txtSalaryRate.Location = New Point(417, 144)
+        txtSalaryRate.Name = "txtSalaryRate"
+        txtSalaryRate.Size = New Size(135, 27)
+        txtSalaryRate.TabIndex = 26
         ' 
         ' EmployeeControl
         ' 
-        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
         AutoScaleMode = AutoScaleMode.Font
+        BackColor = SystemColors.Control
+        BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
+        BackgroundImageLayout = ImageLayout.Stretch
+        Controls.Add(txtSalaryRate)
+        Controls.Add(txtEmail)
+        Controls.Add(txtContactNo)
+        Controls.Add(txtPosition)
+        Controls.Add(txtLastName)
+        Controls.Add(txtFirstName)
         Controls.Add(btnDeleteEmployee)
         Controls.Add(btnUpdateEmployee)
         Controls.Add(btnClearFields)
         Controls.Add(btnAddEmployee)
         Controls.Add(Label8)
         Controls.Add(cmbDepartment)
-        Controls.Add(txtSalaryRate)
         Controls.Add(Label6)
-        Controls.Add(txtEmail)
         Controls.Add(Label5)
-        Controls.Add(txtContactNo)
         Controls.Add(Label4)
-        Controls.Add(txtPosition)
         Controls.Add(Label3)
-        Controls.Add(txtLastName)
         Controls.Add(Label2)
         Controls.Add(dgvEmployees)
-        Controls.Add(txtFirstName)
         Controls.Add(Label1)
-        Name = "EmployeeControl"
-        Size = New Size(776, 394)
+        Margin = New Padding(3, 4, 3, 4)
+        Name = "adminEmployeeControl"
+        Size = New Size(965, 525)
         CType(dgvEmployees, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
 
     Friend WithEvents Label1 As Label
-    Friend WithEvents txtFirstName As MaskedTextBox
     Friend WithEvents dgvEmployees As DataGridView
-    Friend WithEvents txtLastName As MaskedTextBox
     Friend WithEvents Label2 As Label
-    Friend WithEvents txtPosition As MaskedTextBox
     Friend WithEvents Label3 As Label
-    Friend WithEvents txtContactNo As MaskedTextBox
     Friend WithEvents Label4 As Label
-    Friend WithEvents txtEmail As MaskedTextBox
     Friend WithEvents Label5 As Label
-    Friend WithEvents txtSalaryRate As MaskedTextBox
     Friend WithEvents Label6 As Label
     Friend WithEvents cmbDepartment As ComboBox
     Friend WithEvents Label8 As Label
@@ -250,5 +292,11 @@ Partial Class adminEmployeeControl
     Friend WithEvents btnClearFields As Button
     Friend WithEvents btnUpdateEmployee As Button
     Friend WithEvents btnDeleteEmployee As Button
+    Friend WithEvents txtFirstName As TextBox
+    Friend WithEvents txtLastName As TextBox
+    Friend WithEvents txtPosition As TextBox
+    Friend WithEvents txtContactNo As TextBox
+    Friend WithEvents txtEmail As TextBox
+    Friend WithEvents txtSalaryRate As TextBox
 
 End Class

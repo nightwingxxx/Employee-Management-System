@@ -1,11 +1,10 @@
-﻿Public Class Form2
-    Private Sub SplitContainer1_Panel1_Paint(sender As Object, e As PaintEventArgs) Handles splitAdmin.Panel1.Paint
+﻿Imports System.Drawing.Drawing2D
+Imports System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel
 
-    End Sub
+Public Class Form2
 
-    Private Sub SplitContainer1_Panel2_Paint(sender As Object, e As PaintEventArgs) Handles splitAdmin.Panel2.Paint
 
-    End Sub
+
     Private employeesPage As New adminEmployeeControl()
     Private departmentsPage As New adminDepartmentsControl()
     Private attendancePage As New adminAttendanceControl()
@@ -13,6 +12,7 @@
     Private usersPage As New adminUsersControl()
 
     Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
         ShowPage(employeesPage)
     End Sub
 
@@ -56,4 +56,7 @@
         Form1.Show()
     End Sub
 
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+
+    End Sub
 End Class

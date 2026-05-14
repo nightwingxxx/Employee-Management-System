@@ -226,4 +226,20 @@
         LoadUsers()
     End Sub
 
+    Private Sub dgvUsers_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvUsers.CellContentClick
+
+    End Sub
+
+
+    Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
+        If CheckBox1.Checked Then
+            txtPasscode.UseSystemPasswordChar = False
+        Else
+            txtPasscode.UseSystemPasswordChar = True
+        End If
+    End Sub
+
+    Private Sub txtPasscode_MaskInputRejected(sender As Object, e As MaskInputRejectedEventArgs) Handles txtPasscode.MaskInputRejected
+
+    End Sub
 End Class

@@ -1,7 +1,81 @@
-﻿Public Class adminEmployeeControl
+﻿Imports System.Drawing.Drawing2D
+Imports System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel
+
+Public Class adminEmployeeControl
+
+
+
+    Private Sub MakeButtonRounded(btn As Button, radius As Integer)
+        Using path As GraphicsPath = GetRoundedPath(btn.ClientRectangle, radius)
+            btn.Region = New Region(path)
+        End Using
+
+        btn.FlatStyle = FlatStyle.Flat
+        btn.FlatAppearance.BorderSize = 0
+    End Sub
+    Private Sub MakeTextBoxRounded(txt As TextBox, radius As Integer, borderColor As Color)
+        txt.BorderStyle = BorderStyle.None
+
+        Dim fillColor As Color = Color.FromArgb(245, 245, 245)
+
+        Dim panel As New Panel()
+        panel.Size = New Size(txt.Width + 16, txt.Height + 12)
+        panel.Location = txt.Location
+        panel.BackColor = fillColor
+        panel.Padding = New Padding(8, 6, 8, 6)
+
+        Using regionPath As GraphicsPath = GetRoundedPath(panel.ClientRectangle, radius)
+            panel.Region = New Region(regionPath)
+        End Using
+
+        AddHandler panel.Paint,
+        Sub(sender As Object, e As PaintEventArgs)
+            e.Graphics.SmoothingMode = SmoothingMode.AntiAlias
+
+            Using path As GraphicsPath = GetRoundedPath(panel.ClientRectangle, radius)
+                Using brush As New SolidBrush(fillColor)
+                    e.Graphics.FillPath(brush, path)
+                End Using
+
+                Using pen As New Pen(borderColor, 2)
+                    e.Graphics.DrawPath(pen, path)
+                End Using
+            End Using
+        End Sub
+
+        txt.BackColor = fillColor
+
+        txt.Parent.Controls.Add(panel)
+        panel.BringToFront()
+
+        txt.Parent = panel
+        txt.Location = New Point(8, 6)
+        txt.Width = panel.Width - 16
+    End Sub
+
+
+    Private Function GetRoundedPath(rect As Rectangle, radius As Integer) As GraphicsPath
+        Dim path As New GraphicsPath()
+        Dim diameter As Integer = radius * 2
+
+        path.AddArc(rect.X, rect.Y, diameter, diameter, 180, 90)
+        path.AddArc(rect.Right - diameter - 1, rect.Y, diameter, diameter, 270, 90)
+        path.AddArc(rect.Right - diameter - 1, rect.Bottom - diameter - 1, diameter, diameter, 0, 90)
+        path.AddArc(rect.X, rect.Bottom - diameter - 1, diameter, diameter, 90, 90)
+        path.CloseFigure()
+
+        Return path
+    End Function
+
     Private Sub EmployeeControl_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadDepartments()
         LoadEmployees()
+        MakeTextBoxRounded(txtFirstName, 8, Color.WhiteSmoke)
+        MakeTextBoxRounded(txtLastName, 8, Color.WhiteSmoke)
+        MakeTextBoxRounded(txtPosition, 8, Color.WhiteSmoke)
+        MakeTextBoxRounded(txtContactNo, 8, Color.WhiteSmoke)
+        MakeTextBoxRounded(txtEmail, 8, Color.WhiteSmoke)
+        MakeTextBoxRounded(txtSalaryRate, 8, Color.WhiteSmoke)
     End Sub
 
     Dim selectedEmployeeID As Integer = 0
@@ -218,6 +292,10 @@
                 Exit For
             End If
         Next
+
+    End Sub
+
+    Private Sub cmbDepartment_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbDepartment.SelectedIndexChanged
 
     End Sub
 End Class
