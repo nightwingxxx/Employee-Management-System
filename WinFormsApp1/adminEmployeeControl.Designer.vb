@@ -63,24 +63,37 @@ Partial Class adminEmployeeControl
         ' 
         ' adminEmployeeControl
         ' 
-        AutoScaleDimensions = New SizeF(8F, 20F)
+        AutoScaleDimensions = New SizeF(8.0F, 20.0F)
         AutoScaleMode = AutoScaleMode.Font
-        BackColor = SystemColors.Control
-        BackgroundImageLayout = ImageLayout.Stretch
+        Controls.Add(btnDeleteEmployee)
+        Controls.Add(btnUpdateEmployee)
+        Controls.Add(btnClearFields)
         Controls.Add(btnAddEmployee)
-        Controls.Add(btnSearch)
-        Controls.Add(txtSearch)
-        Controls.Add(lvEmployees)
-        Margin = New Padding(3, 5, 3, 5)
-        Name = "adminEmployeeControl"
-        Size = New Size(1126, 671)
+        Controls.Add(Label8)
+        Controls.Add(cmbDepartment)
+        Controls.Add(txtSalaryRate)
+        Controls.Add(Label6)
+        Controls.Add(txtEmail)
+        Controls.Add(Label5)
+        Controls.Add(txtContactNo)
+        Controls.Add(Label4)
+        Controls.Add(txtPosition)
+        Controls.Add(Label3)
+        Controls.Add(txtLastName)
+        Controls.Add(Label2)
+        Controls.Add(dgvEmployees)
+        Controls.Add(txtFirstName)
+        Controls.Add(Label1)
+        Name = "EmployeeControl"
+        Size = New Size(776, 394)
+        CType(dgvEmployees, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
 
     Friend WithEvents lvEmployees As ListView
-    Friend WithEvents txtSearch As TextBox
-    Friend WithEvents btnSearch As Button
-    Friend WithEvents btnAddEmployee As Button
+        Controls.Add(btnDeleteEmployee)
+        Controls.Add(btnUpdateEmployee)
+        Controls.Add(btnClearFields)
 
-End Class
+

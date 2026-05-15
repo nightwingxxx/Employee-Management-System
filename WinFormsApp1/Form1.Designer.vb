@@ -41,14 +41,14 @@ Partial Class Form1
         Label1.ForeColor = Color.DimGray
         Label1.Location = New Point(95, 252)
         Label1.Name = "Label1"
-        Label1.Size = New Size(83, 19)
+        Label1.Size = New Size(87, 21)
         Label1.TabIndex = 0
         Label1.Text = "Username"
         ' 
         ' username
         ' 
-        username.AcceptsReturn = True
-        username.BackColor = SystemColors.MenuBar
+        username.Font = New Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        username.Location = New Point(89, 241)
         username.BorderStyle = BorderStyle.None
         username.Font = New Font("Segoe UI Light", 9.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         username.ForeColor = Color.DimGray
@@ -60,8 +60,8 @@ Partial Class Form1
         ' 
         ' Button1
         ' 
-        Button1.BackColor = Color.CornflowerBlue
-        Button1.FlatStyle = FlatStyle.Flat
+        Button1.Font = New Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Button1.ForeColor = Color.FromArgb(CByte(0), CByte(62), CByte(126))
         Button1.Font = New Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Button1.ForeColor = Color.White
         Button1.Location = New Point(91, 410)
@@ -76,8 +76,8 @@ Partial Class Form1
         ' 
         Label2.AutoSize = True
         Label2.BackColor = Color.Transparent
-        Label2.Font = New Font("Arial", 10.2F)
-        Label2.ForeColor = Color.DimGray
+        Label2.Font = New Font("Segoe UI", 12.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label2.ForeColor = Color.MediumBlue
         Label2.Location = New Point(95, 324)
         Label2.Name = "Label2"
         Label2.Size = New Size(80, 19)
@@ -86,8 +86,8 @@ Partial Class Form1
         ' 
         ' password
         ' 
-        password.BackColor = SystemColors.MenuBar
-        password.BorderStyle = BorderStyle.None
+        password.Font = New Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        password.Location = New Point(89, 310)
         password.Cursor = Cursors.IBeam
         password.Font = New Font("Segoe UI Light", 9.0F)
         password.ForeColor = Color.DimGray
@@ -95,7 +95,7 @@ Partial Class Form1
         password.Margin = New Padding(3, 4, 3, 4)
         password.Name = "password"
         password.PasswordChar = "*"c
-        password.Size = New Size(280, 20)
+        password.TabIndex = 4
         password.TabIndex = 4
         ' 
         ' Label3
@@ -138,20 +138,20 @@ Partial Class Form1
         ' 
         ' Form1
         ' 
-        AutoScaleDimensions = New SizeF(8.0F, 20.0F)
+        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
         AutoScaleMode = AutoScaleMode.Font
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         BackgroundImageLayout = ImageLayout.Stretch
-        ClientSize = New Size(1019, 600)
-        Controls.Add(Button4)
+        ClientSize = New Size(800, 450)
+        Controls.Add(password)
         Controls.Add(Button3)
         Controls.Add(Label3)
         Controls.Add(Label2)
         Controls.Add(Button1)
         Controls.Add(username)
         Controls.Add(Label1)
-        Controls.Add(password)
-        FormBorderStyle = FormBorderStyle.FixedSingle
+        Name = "Form1"
+        Text = "Employee Management System"
         Margin = New Padding(3, 4, 3, 4)
         Name = "Form1"
         Text = "Employee Management System"
