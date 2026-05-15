@@ -5,13 +5,6 @@
         splitEmployee.Panel2.Controls.Add(ctrl)
     End Sub
 
-    Private Sub btnMyAttendance_Click(sender As Object, e As EventArgs) Handles btnMyAttendance.Click
-        LoadControl(New EmployeeAttendanceControl())
-    End Sub
-
-    Private Sub btnMyPayroll_Click(sender As Object, e As EventArgs) Handles btnMyPayroll.Click
-        LoadControl(New EmployeePayrollControl())
-    End Sub
 
     Private Sub btnLogOut_Click(sender As Object, e As EventArgs) Handles btnLogOut.Click
         Form1.username.Clear()
@@ -21,4 +14,7 @@
         Form1.Show()
     End Sub
 
+    Private Sub splitEmployee_Panel2_Paint(sender As Object, e As PaintEventArgs) Handles splitEmployee.Panel2.Paint
+
+    End Sub
 End Class
