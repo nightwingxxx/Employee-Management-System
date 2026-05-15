@@ -24,12 +24,11 @@ Partial Class Form2
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form2))
         splitAdmin = New SplitContainer()
+        btnAppointmentsPanel = New Button()
         FlowLayoutPanel1 = New FlowLayoutPanel()
         btnLogOut = New Button()
         Button1 = New Button()
         btnUsersPanel = New Button()
-        btnPayrollPanel = New Button()
-        btnAttendancePanel = New Button()
         btnDepartmentsPanel = New Button()
         btnEmployeesPanel = New Button()
         CType(splitAdmin, ComponentModel.ISupportInitialize).BeginInit()
@@ -50,18 +49,31 @@ Partial Class Form2
         splitAdmin.Panel1.BackColor = Color.AliceBlue
         splitAdmin.Panel1.BackgroundImage = My.Resources.Resources.Untitled__171_x_229_px___2_
         splitAdmin.Panel1.BackgroundImageLayout = ImageLayout.Stretch
+        splitAdmin.Panel1.Controls.Add(btnAppointmentsPanel)
         splitAdmin.Panel1.Controls.Add(FlowLayoutPanel1)
         splitAdmin.Panel1.Controls.Add(btnLogOut)
         splitAdmin.Panel1.Controls.Add(Button1)
         splitAdmin.Panel1.Controls.Add(btnUsersPanel)
-        splitAdmin.Panel1.Controls.Add(btnPayrollPanel)
-        splitAdmin.Panel1.Controls.Add(btnAttendancePanel)
         splitAdmin.Panel1.Controls.Add(btnDepartmentsPanel)
         splitAdmin.Panel1.Controls.Add(btnEmployeesPanel)
-        splitAdmin.Size = New Size(1267, 597)
-        splitAdmin.SplitterDistance = 315
+        splitAdmin.Size = New Size(1280, 597)
+        splitAdmin.SplitterDistance = 317
         splitAdmin.SplitterWidth = 5
         splitAdmin.TabIndex = 1
+        ' 
+        ' btnAppointmentsPanel
+        ' 
+        btnAppointmentsPanel.BackColor = Color.Transparent
+        btnAppointmentsPanel.FlatStyle = FlatStyle.Flat
+        btnAppointmentsPanel.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+        btnAppointmentsPanel.ForeColor = Color.White
+        btnAppointmentsPanel.Location = New Point(46, 325)
+        btnAppointmentsPanel.Margin = New Padding(3, 4, 3, 4)
+        btnAppointmentsPanel.Name = "btnAppointmentsPanel"
+        btnAppointmentsPanel.Size = New Size(225, 31)
+        btnAppointmentsPanel.TabIndex = 8
+        btnAppointmentsPanel.Text = "Appointment"
+        btnAppointmentsPanel.UseVisualStyleBackColor = False
         ' 
         ' FlowLayoutPanel1
         ' 
@@ -88,7 +100,7 @@ Partial Class Form2
         ' 
         Button1.BackColor = Color.Transparent
         Button1.FlatStyle = FlatStyle.Flat
-        Button1.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold)
+        Button1.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
         Button1.ForeColor = Color.White
         Button1.Location = New Point(46, 209)
         Button1.Margin = New Padding(3, 4, 3, 4)
@@ -102,9 +114,9 @@ Partial Class Form2
         ' 
         btnUsersPanel.BackColor = Color.Transparent
         btnUsersPanel.FlatStyle = FlatStyle.Flat
-        btnUsersPanel.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold)
+        btnUsersPanel.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
         btnUsersPanel.ForeColor = Color.White
-        btnUsersPanel.Location = New Point(45, 402)
+        btnUsersPanel.Location = New Point(46, 364)
         btnUsersPanel.Margin = New Padding(3, 4, 3, 4)
         btnUsersPanel.Name = "btnUsersPanel"
         btnUsersPanel.Size = New Size(225, 31)
@@ -112,39 +124,11 @@ Partial Class Form2
         btnUsersPanel.Text = "Users"
         btnUsersPanel.UseVisualStyleBackColor = False
         ' 
-        ' btnPayrollPanel
-        ' 
-        btnPayrollPanel.BackColor = Color.Transparent
-        btnPayrollPanel.FlatStyle = FlatStyle.Flat
-        btnPayrollPanel.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold)
-        btnPayrollPanel.ForeColor = Color.White
-        btnPayrollPanel.Location = New Point(46, 363)
-        btnPayrollPanel.Margin = New Padding(3, 4, 3, 4)
-        btnPayrollPanel.Name = "btnPayrollPanel"
-        btnPayrollPanel.Size = New Size(225, 31)
-        btnPayrollPanel.TabIndex = 3
-        btnPayrollPanel.Text = "Payroll"
-        btnPayrollPanel.UseVisualStyleBackColor = False
-        ' 
-        ' btnAttendancePanel
-        ' 
-        btnAttendancePanel.BackColor = Color.Transparent
-        btnAttendancePanel.FlatStyle = FlatStyle.Flat
-        btnAttendancePanel.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold)
-        btnAttendancePanel.ForeColor = Color.White
-        btnAttendancePanel.Location = New Point(46, 325)
-        btnAttendancePanel.Margin = New Padding(3, 4, 3, 4)
-        btnAttendancePanel.Name = "btnAttendancePanel"
-        btnAttendancePanel.Size = New Size(225, 31)
-        btnAttendancePanel.TabIndex = 2
-        btnAttendancePanel.Text = "Attendance"
-        btnAttendancePanel.UseVisualStyleBackColor = False
-        ' 
         ' btnDepartmentsPanel
         ' 
         btnDepartmentsPanel.BackColor = Color.Transparent
         btnDepartmentsPanel.FlatStyle = FlatStyle.Flat
-        btnDepartmentsPanel.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold)
+        btnDepartmentsPanel.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
         btnDepartmentsPanel.ForeColor = Color.White
         btnDepartmentsPanel.Location = New Point(46, 286)
         btnDepartmentsPanel.Margin = New Padding(3, 4, 3, 4)
@@ -159,7 +143,7 @@ Partial Class Form2
         btnEmployeesPanel.BackColor = Color.Transparent
         btnEmployeesPanel.BackgroundImageLayout = ImageLayout.None
         btnEmployeesPanel.FlatStyle = FlatStyle.Flat
-        btnEmployeesPanel.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold)
+        btnEmployeesPanel.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
         btnEmployeesPanel.ForeColor = Color.White
         btnEmployeesPanel.Location = New Point(46, 247)
         btnEmployeesPanel.Margin = New Padding(3, 4, 3, 4)
@@ -173,9 +157,9 @@ Partial Class Form2
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(1267, 600)
+        ClientSize = New Size(1280, 600)
         Controls.Add(splitAdmin)
-        FormBorderStyle = FormBorderStyle.FixedToolWindow
+        FormBorderStyle = FormBorderStyle.FixedSingle
         Margin = New Padding(3, 4, 3, 4)
         Name = "Form2"
         Text = "Employee Management System"
@@ -187,12 +171,11 @@ Partial Class Form2
 
     Friend WithEvents splitAdmin As SplitContainer
     Friend WithEvents btnUsersPanel As Button
-    Friend WithEvents btnPayrollPanel As Button
-    Friend WithEvents btnAttendancePanel As Button
     Friend WithEvents btnDepartmentsPanel As Button
     Friend WithEvents btnEmployeesPanel As Button
     Friend WithEvents btnLogOut As Button
     Friend WithEvents Button1 As Button
     Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
     Friend WithEvents pnlDept_Clear As Button
+    Friend WithEvents btnAppointmentsPanel As Button
 End Class

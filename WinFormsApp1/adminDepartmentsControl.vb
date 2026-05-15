@@ -1,138 +1,71 @@
 ﻿Public Class adminDepartmentsControl
     Private Sub DepartmentsControl_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        SetupListView()
         LoadDepartmentList()
     End Sub
 
-    Dim selectedDepartmentID As Integer = 0
+    Private Sub SetupListView()
+        lvDepartments.View = View.Details
+        lvDepartments.FullRowSelect = True
+        lvDepartments.GridLines = True
+        lvDepartments.MultiSelect = False
 
-    Private Sub pnlDept_AddDept_Click(sender As Object, e As EventArgs) Handles pnlDept_AddDept.Click
-        If pnlDept_txtDeptName.Text.Trim = "" Then
-            MsgBox("Please fill in Department Name")
-            Exit Sub
-        End If
-
-        Dim STRSQL As String = ""
-
-        STRSQL = "INSERT INTO Department (DepartmentName) VALUES ("
-        STRSQL &= "'" & Replace(pnlDept_txtDeptName.Text, "'", "''") & "')"
-
-        CNN.Execute(STRSQL)
-
-        MsgBox("Department added successfully.")
-        DeptPanelClearFields()
-        LoadDepartmentList()
+        lvDepartments.Columns.Clear()
+        lvDepartments.Columns.Add("ID", 80)
+        lvDepartments.Columns.Add("Department Name", 220)
+        lvDepartments.Columns.Add("No. of Employees", 140)
     End Sub
 
-    Private Sub pnlDept_Clear_txtboxs_Click(sender As Object, e As EventArgs) Handles pnl_DeptClearFields.Click
-        DeptPanelClearFields()
-    End Sub
-
-    Private Sub pnlDept_UpdateDept_Click(sender As Object, e As EventArgs) Handles pnlDept_UpdateDept.Click
-        If selectedDepartmentID = 0 Then
-            MsgBox("Select a Department first.")
-            Exit Sub
-        End If
-
-        If pnlDept_txtDeptName.Text.Trim = "" Then
-            MsgBox("Please fill in Department Name")
-            Exit Sub
-        End If
-
-        Dim STRSQL As String = ""
-
-        STRSQL = "UPDATE Department SET "
-        STRSQL &= "DepartmentName = '" & Replace(pnlDept_txtDeptName.Text, "'", "''") & "' "
-        STRSQL &= "WHERE DepartmentID = " & selectedDepartmentID
-
-        CNN.Execute(STRSQL)
-
-        MsgBox("Department Name changed successfully.")
-
-        DeptPanelClearFields()
-        LoadDepartmentList()
-    End Sub
-
-    Private Sub pnlDept_DeleteDept_Click(sender As Object, e As EventArgs) Handles pnlDept_DeleteDept.Click
-        If selectedDepartmentID = 0 Then
-            MsgBox("Select a Department first.")
-            Exit Sub
-        End If
-
+    Private Sub LoadDepartmentList(Optional searchText As String = "")
         Dim RST As New ADODB.Recordset
         Dim STRSQL As String = ""
 
-        STRSQL = "SELECT COUNT(*) AS EmployeeCount FROM Employees WHERE DepartmentID = " & selectedDepartmentID
-        RST = CNN.Execute(STRSQL)
+        STRSQL = "SELECT D.DepartmentID, D.DepartmentName, COUNT(E.EmployeeID) AS EmployeeCount "
+        STRSQL &= "FROM Department D "
+        STRSQL &= "LEFT JOIN Employees E ON D.DepartmentID = E.DepartmentID "
 
-        If CInt(RST.Fields("EmployeeCount").Value) > 0 Then
-            MsgBox("Cannot delete this department because it still has employees assigned to it.")
-            Exit Sub
+        If searchText.Trim() <> "" Then
+            STRSQL &= "WHERE D.DepartmentName LIKE '%" & Replace(searchText, "'", "''") & "%' "
         End If
 
-        STRSQL = "DELETE FROM Department WHERE DepartmentID = " & selectedDepartmentID
-        CNN.Execute(STRSQL)
-
-        MsgBox("Department deleted successfully.")
-
-        DeptPanelClearFields()
-        LoadDepartmentList()
-    End Sub
-
-    Private Sub DeptPanelClearFields()
-        selectedDepartmentID = 0
-        pnlDept_txtDeptName.Clear()
-    End Sub
-
-    Private Sub LoadDepartmentList()
-        Dim RST As New ADODB.Recordset
-        Dim STRSQL As String = ""
-
-        STRSQL = "SELECT D.DepartmentID, D.DepartmentName, COUNT(E.EmployeeID) AS EmployeeCount"
-        STRSQL &= " FROM Department D"
-        STRSQL &= " LEFT JOIN Employees E ON D.DepartmentID = E.DepartmentID"
-        STRSQL &= " GROUP BY D.DepartmentID, D.DepartmentName"
-        STRSQL &= " ORDER BY D.DepartmentName"
+        STRSQL &= "GROUP BY D.DepartmentID, D.DepartmentName "
+        STRSQL &= "ORDER BY D.DepartmentName"
 
         RST = CNN.Execute(STRSQL)
 
-        dgvDepartments.Rows.Clear()
-        dgvDepartments.Columns.Clear()
-        dgvDepartments.AllowUserToAddRows = False
-        dgvDepartments.ReadOnly = True
-        dgvDepartments.SelectionMode = DataGridViewSelectionMode.FullRowSelect
-        dgvDepartments.MultiSelect = False
-
-        dgvDepartments.Columns.Add("DepartmentID", "Department ID")
-        dgvDepartments.Columns.Add("DepartmentName", "Department Name")
-        dgvDepartments.Columns.Add("EmployeeCount", "No. of Employees")
+        lvDepartments.Items.Clear()
 
         Do While Not RST.EOF
-            dgvDepartments.Rows.Add(
-                RST.Fields("DepartmentID").Value,
-                RST.Fields("DepartmentName").Value,
-                RST.Fields("EmployeeCount").Value
-            )
+            Dim item As New ListViewItem(RST.Fields("DepartmentID").Value.ToString())
+            item.SubItems.Add(RST.Fields("DepartmentName").Value.ToString())
+            item.SubItems.Add(RST.Fields("EmployeeCount").Value.ToString())
 
+            lvDepartments.Items.Add(item)
             RST.MoveNext()
         Loop
     End Sub
 
-    Private Sub dgvDepartments_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvDepartments.CellClick
-        If e.RowIndex < 0 Then Exit Sub
-        If dgvDepartments.Rows.Count = 0 Then Exit Sub
-        If dgvDepartments.Rows(e.RowIndex).IsNewRow Then Exit Sub
-
-        Dim row = dgvDepartments.Rows(e.RowIndex)
-
-        If row.Cells("DepartmentID").Value Is Nothing OrElse IsDBNull(row.Cells("DepartmentID").Value) Then
-            Exit Sub
-        End If
-
-        selectedDepartmentID = CInt(row.Cells("DepartmentID").Value)
-        pnlDept_txtDeptName.Text = row.Cells("DepartmentName").Value.ToString
+    Private Sub txtSearchDept_TextChanged(sender As Object, e As EventArgs) Handles txtSearchDept.TextChanged
+        LoadDepartmentList(txtSearchDept.Text)
     End Sub
 
-    Private Sub dgvDepartments_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvDepartments.CellContentClick
+    Private Sub btnSearchDept_Click(sender As Object, e As EventArgs) Handles btnSearchDept.Click
+        LoadDepartmentList(txtSearchDept.Text)
+    End Sub
 
+    Private Sub btnAddDept_Click(sender As Object, e As EventArgs) Handles btnAddDept.Click
+        Dim frm As New DepartmentDetailsForm(0)
+        frm.ShowDialog()
+        LoadDepartmentList(txtSearchDept.Text)
+    End Sub
+
+    Private Sub lvDepartments_DoubleClick(sender As Object, e As EventArgs) Handles lvDepartments.DoubleClick
+        If lvDepartments.SelectedItems.Count = 0 Then Exit Sub
+
+        Dim departmentID As Integer = CInt(lvDepartments.SelectedItems(0).Text)
+
+        Dim frm As New DepartmentDetailsForm(departmentID)
+        frm.ShowDialog()
+        LoadDepartmentList(txtSearchDept.Text)
     End Sub
 End Class

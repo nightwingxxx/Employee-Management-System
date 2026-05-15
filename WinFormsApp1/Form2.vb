@@ -7,15 +7,23 @@ Public Class Form2
 
     Private employeesPage As New adminEmployeeControl()
     Private departmentsPage As New adminDepartmentsControl()
-    Private attendancePage As New adminAttendanceControl()
-    Private payrollPage As New adminPayrollControl()
     Private usersPage As New adminUsersControl()
+    Private appointmentsPage As New adminAppointment()
+
 
     Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        RemoveButtonBorder(btnEmployeesPanel)
+        RemoveButtonBorder(btnDepartmentsPanel)
+        RemoveButtonBorder(btnUsersPanel)
 
         ShowPage(employeesPage)
     End Sub
 
+    Private Sub RemoveButtonBorder(btn As Button)
+        btn.FlatStyle = FlatStyle.Flat
+        btn.FlatAppearance.BorderSize = 0
+        btn.UseVisualStyleBackColor = False
+    End Sub
     Private Sub ShowPage(page As UserControl)
         splitAdmin.Panel2.Controls.Clear()
 
@@ -30,18 +38,8 @@ Public Class Form2
     End Sub
 
     Private Sub btnDepartmentsPanel_Click(sender As Object, e As EventArgs) Handles btnDepartmentsPanel.Click
-        departmentsPage = New adminDepartmentsControl()
+        departmentsPage = New adminDepartmentsControl
         ShowPage(departmentsPage)
-    End Sub
-
-    Private Sub btnAttendancePanel_Click(sender As Object, e As EventArgs) Handles btnAttendancePanel.Click
-        attendancePage = New adminAttendanceControl()
-        ShowPage(attendancePage)
-    End Sub
-
-    Private Sub btnPayrollPanel_Click(sender As Object, e As EventArgs) Handles btnPayrollPanel.Click
-        payrollPage = New adminPayrollControl()
-        ShowPage(payrollPage)
     End Sub
 
     Private Sub btnUsersPanel_Click(sender As Object, e As EventArgs) Handles btnUsersPanel.Click
@@ -56,7 +54,10 @@ Public Class Form2
         Form1.Show()
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub btnAppointmentsPanel_Click(sender As Object, e As EventArgs) Handles btnAppointmentsPanel.Click
+        appointmentsPage = New adminAppointment()
+        ShowPage(appointmentsPage)
 
     End Sub
+
 End Class

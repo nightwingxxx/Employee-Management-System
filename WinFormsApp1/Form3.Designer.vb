@@ -35,6 +35,7 @@ Partial Class Form3
         ' 
         splitEmployee.Dock = DockStyle.Fill
         splitEmployee.Location = New Point(0, 0)
+        splitEmployee.Margin = New Padding(3, 4, 3, 4)
         splitEmployee.Name = "splitEmployee"
         ' 
         ' splitEmployee.Panel1
@@ -42,43 +43,51 @@ Partial Class Form3
         splitEmployee.Panel1.Controls.Add(btnLogOut)
         splitEmployee.Panel1.Controls.Add(btnMyPayroll)
         splitEmployee.Panel1.Controls.Add(btnMyAttendance)
-        splitEmployee.Size = New Size(800, 450)
-        splitEmployee.SplitterDistance = 165
+        ' 
+        ' splitEmployee.Panel2
+        ' 
+        splitEmployee.Size = New Size(914, 600)
+        splitEmployee.SplitterDistance = 188
+        splitEmployee.SplitterWidth = 5
         splitEmployee.TabIndex = 0
         ' 
         ' btnLogOut
         ' 
-        btnLogOut.Location = New Point(0, 232)
+        btnLogOut.Location = New Point(0, 309)
+        btnLogOut.Margin = New Padding(3, 4, 3, 4)
         btnLogOut.Name = "btnLogOut"
-        btnLogOut.Size = New Size(162, 23)
+        btnLogOut.Size = New Size(185, 31)
         btnLogOut.TabIndex = 2
         btnLogOut.Text = "Logout"
         btnLogOut.UseVisualStyleBackColor = True
         ' 
         ' btnMyPayroll
         ' 
-        btnMyPayroll.Location = New Point(0, 191)
+        btnMyPayroll.Location = New Point(0, 255)
+        btnMyPayroll.Margin = New Padding(3, 4, 3, 4)
         btnMyPayroll.Name = "btnMyPayroll"
-        btnMyPayroll.Size = New Size(162, 23)
+        btnMyPayroll.Size = New Size(185, 31)
         btnMyPayroll.TabIndex = 1
         btnMyPayroll.Text = "My Payroll"
         btnMyPayroll.UseVisualStyleBackColor = True
         ' 
         ' btnMyAttendance
         ' 
-        btnMyAttendance.Location = New Point(0, 152)
+        btnMyAttendance.Location = New Point(0, 203)
+        btnMyAttendance.Margin = New Padding(3, 4, 3, 4)
         btnMyAttendance.Name = "btnMyAttendance"
-        btnMyAttendance.Size = New Size(162, 23)
+        btnMyAttendance.Size = New Size(185, 31)
         btnMyAttendance.TabIndex = 0
         btnMyAttendance.Text = "My Attendance"
         btnMyAttendance.UseVisualStyleBackColor = True
         ' 
         ' Form3
         ' 
-        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(800, 450)
+        ClientSize = New Size(914, 600)
         Controls.Add(splitEmployee)
+        Margin = New Padding(3, 4, 3, 4)
         Name = "Form3"
         Text = "Form3"
         splitEmployee.Panel1.ResumeLayout(False)
