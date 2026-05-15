@@ -1,4 +1,6 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
+﻿Imports System.Reflection.Emit
+
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class adminEmployeeControl
     Inherits System.Windows.Forms.UserControl
 
@@ -30,70 +32,58 @@ Partial Class adminEmployeeControl
         ' 
         ' lvEmployees
         ' 
-        lvEmployees.Location = New Point(0, 153)
+        lvEmployees.Location = New Point(3, 74)
+        lvEmployees.Margin = New Padding(3, 2, 3, 2)
         lvEmployees.Name = "lvEmployees"
-        lvEmployees.Size = New Size(1126, 518)
+        lvEmployees.Size = New Size(1111, 390)
         lvEmployees.TabIndex = 0
         lvEmployees.UseCompatibleStateImageBehavior = False
         ' 
         ' txtSearch
         ' 
-        txtSearch.Location = New Point(35, 18)
+        txtSearch.Location = New Point(31, 14)
+        txtSearch.Margin = New Padding(3, 2, 3, 2)
         txtSearch.Name = "txtSearch"
-        txtSearch.Size = New Size(287, 27)
+        txtSearch.Size = New Size(252, 23)
         txtSearch.TabIndex = 1
         ' 
         ' btnSearch
         ' 
-        btnSearch.Location = New Point(328, 18)
+        btnSearch.Location = New Point(287, 14)
+        btnSearch.Margin = New Padding(3, 2, 3, 2)
         btnSearch.Name = "btnSearch"
-        btnSearch.Size = New Size(62, 29)
+        btnSearch.Size = New Size(54, 22)
         btnSearch.TabIndex = 2
         btnSearch.Text = "Search"
         btnSearch.UseVisualStyleBackColor = True
         ' 
         ' btnAddEmployee
         ' 
-        btnAddEmployee.Location = New Point(396, 17)
+        btnAddEmployee.Location = New Point(346, 13)
+        btnAddEmployee.Margin = New Padding(3, 2, 3, 2)
         btnAddEmployee.Name = "btnAddEmployee"
-        btnAddEmployee.Size = New Size(94, 29)
+        btnAddEmployee.Size = New Size(82, 22)
         btnAddEmployee.TabIndex = 3
         btnAddEmployee.Text = "Add"
         btnAddEmployee.UseVisualStyleBackColor = True
         ' 
         ' adminEmployeeControl
         ' 
-        AutoScaleDimensions = New SizeF(8.0F, 20.0F)
+        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
         AutoScaleMode = AutoScaleMode.Font
-        Controls.Add(btnDeleteEmployee)
-        Controls.Add(btnUpdateEmployee)
-        Controls.Add(btnClearFields)
+        Controls.Add(lvEmployees)
+        Controls.Add(txtSearch)
+        Controls.Add(btnSearch)
         Controls.Add(btnAddEmployee)
-        Controls.Add(Label8)
-        Controls.Add(cmbDepartment)
-        Controls.Add(txtSalaryRate)
-        Controls.Add(Label6)
-        Controls.Add(txtEmail)
-        Controls.Add(Label5)
-        Controls.Add(txtContactNo)
-        Controls.Add(Label4)
-        Controls.Add(txtPosition)
-        Controls.Add(Label3)
-        Controls.Add(txtLastName)
-        Controls.Add(Label2)
-        Controls.Add(dgvEmployees)
-        Controls.Add(txtFirstName)
-        Controls.Add(Label1)
-        Name = "EmployeeControl"
-        Size = New Size(776, 394)
-        CType(dgvEmployees, ComponentModel.ISupportInitialize).EndInit()
+        Margin = New Padding(3, 2, 3, 2)
+        Name = "adminEmployeeControl"
+        Size = New Size(1111, 464)
         ResumeLayout(False)
         PerformLayout()
     End Sub
 
     Friend WithEvents lvEmployees As ListView
-        Controls.Add(btnDeleteEmployee)
-        Controls.Add(btnUpdateEmployee)
-        Controls.Add(btnClearFields)
-
-
+    Friend WithEvents txtSearch As TextBox
+    Friend WithEvents btnSearch As Button
+    Friend WithEvents btnAddEmployee As Button
+End Class
