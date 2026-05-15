@@ -9,6 +9,7 @@ Public Class Form2
     Private departmentsPage As New adminDepartmentsControl()
     Private usersPage As New adminUsersControl()
     Private appointmentsPage As New adminAppointment()
+    Private dashboardPage As New adminDashboard()
 
 
     Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -16,7 +17,7 @@ Public Class Form2
         RemoveButtonBorder(btnDepartmentsPanel)
         RemoveButtonBorder(btnUsersPanel)
 
-        ShowPage(employeesPage)
+        ShowPage(dashboardPage)
     End Sub
 
     Private Sub RemoveButtonBorder(btn As Button)
@@ -57,6 +58,12 @@ Public Class Form2
     Private Sub btnAppointmentsPanel_Click(sender As Object, e As EventArgs) Handles btnAppointmentsPanel.Click
         appointmentsPage = New adminAppointment()
         ShowPage(appointmentsPage)
+
+    End Sub
+
+    Private Sub btnDashboardPanel_Click(sender As Object, e As EventArgs) Handles btnDashboardPanel.Click
+        dashboardPage = New adminDashboard()
+        ShowPage(dashboardPage)
 
     End Sub
 
