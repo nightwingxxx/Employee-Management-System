@@ -179,8 +179,6 @@
         Dim empID As Integer = GetSelectedEmployeeID()
         Dim deptID As Integer = GetSelectedDepartmentID()
 
-        CNN.Execute("UPDATE EmployeeAppointments SET EndDate = GETDATE(), Status = 'Ended' WHERE EmployeeID = " & empID & " AND EndDate IS NULL")
-
         Dim endDateValue As String
 
         If chkNoEndDate.Checked Then
@@ -205,6 +203,7 @@
 
         MsgBox("Appointment added successfully.")
     End Sub
+
 
     Private Sub UpdateAppointment()
         Dim empID As Integer = GetSelectedEmployeeID()

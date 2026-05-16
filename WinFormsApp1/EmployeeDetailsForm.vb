@@ -9,6 +9,7 @@
 
     Private Sub EmployeeDetailsForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadDepartments()
+        SetupAppointmentListView()
 
         If employeeID = 0 Then
             Me.Text = "Add Employee"
@@ -19,6 +20,7 @@
             btnSave.Text = "Update"
             btnDelete.Visible = True
             LoadEmployeeDetails()
+            LoadEmployeeAppointments()
         End If
     End Sub
 
@@ -43,6 +45,20 @@
 
         Return CInt(cmbDepartment.Text.Split("-"c)(0).Trim())
     End Function
+
+    Private Sub SetupAppointmentListView()
+        lvEmployeeAppointments.View = View.Details
+        lvEmployeeAppointments.FullRowSelect = True
+        lvEmployeeAppointments.GridLines = True
+        lvEmployeeAppointments.MultiSelect = False
+
+        lvEmployeeAppointments.Columns.Clear()
+        lvEmployeeAppointments.Columns.Add("Position", 160)
+        lvEmployeeAppointments.Columns.Add("Department", 160)
+        lvEmployeeAppointments.Columns.Add("Start Date", 120)
+        lvEmployeeAppointments.Columns.Add("End Date", 120)
+        lvEmployeeAppointments.Columns.Add("Status", 100)
+    End Sub
 
     Private Sub LoadEmployeeDetails()
         Dim RST As New ADODB.Recordset
@@ -88,6 +104,39 @@
 
         Return True
     End Function
+
+    Private Sub LoadEmployeeAppointments()
+        Dim RST As New ADODB.Recordset
+        Dim STRSQL As String = ""
+
+        STRSQL = "SELECT A.Position, D.DepartmentName, A.StartDate, A.EndDate, A.Status "
+        STRSQL &= "FROM EmployeeAppointments A "
+        STRSQL &= "INNER JOIN Department D ON A.DepartmentID = D.DepartmentID "
+        STRSQL &= "WHERE A.EmployeeID = " & employeeID & " "
+        STRSQL &= "ORDER BY A.StartDate DESC, A.AppointmentID DESC"
+
+        RST = CNN.Execute(STRSQL)
+
+        lvEmployeeAppointments.Items.Clear()
+
+        Do While Not RST.EOF
+            Dim item As New ListViewItem(RST.Fields("Position").Value.ToString())
+            item.SubItems.Add(RST.Fields("DepartmentName").Value.ToString())
+            item.SubItems.Add(CDate(RST.Fields("StartDate").Value).ToShortDateString())
+
+            If IsDBNull(RST.Fields("EndDate").Value) Then
+                item.SubItems.Add("")
+            Else
+                item.SubItems.Add(CDate(RST.Fields("EndDate").Value).ToShortDateString())
+            End If
+
+            item.SubItems.Add(RST.Fields("Status").Value.ToString())
+
+            lvEmployeeAppointments.Items.Add(item)
+            RST.MoveNext()
+        Loop
+    End Sub
+
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         If Not ValidateFields() Then Exit Sub

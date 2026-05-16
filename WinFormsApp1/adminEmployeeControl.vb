@@ -87,12 +87,13 @@ Public Class adminEmployeeControl
         lvEmployees.Columns.Clear()
         lvEmployees.Columns.Add("ID", 80)
         lvEmployees.Columns.Add("Full Name", 200)
-        lvEmployees.Columns.Add("Position", 160)
-        lvEmployees.Columns.Add("Department", 160)
         lvEmployees.Columns.Add("Contact No", 140)
         lvEmployees.Columns.Add("Email", 200)
         lvEmployees.Columns.Add("Salary Rate", 120)
+        lvEmployees.Columns.Add("Latest Position", 160)
+        lvEmployees.Columns.Add("Latest Department", 160)
         lvEmployees.Columns.Add("Status", 100)
+
 
     End Sub
 
@@ -100,8 +101,9 @@ Public Class adminEmployeeControl
         Dim RST As New ADODB.Recordset
         Dim STRSQL As String = ""
 
-        STRSQL = "SELECT E.EmployeeID, E.FirstName, E.LastName, E.Position, "
-        STRSQL &= "D.DepartmentName, E.ContactNo, E.Email, E.SalaryRate, "
+        STRSQL = "SELECT E.EmployeeID, E.FirstName, E.LastName, "
+        STRSQL &= "E.ContactNo, E.Email, E.SalaryRate, "
+        STRSQL &= "E.Position, D.DepartmentName, "
         STRSQL &= "CASE WHEN EXISTS ("
         STRSQL &= "SELECT 1 FROM EmployeeAppointments A "
         STRSQL &= "WHERE A.EmployeeID = E.EmployeeID "
@@ -111,12 +113,19 @@ Public Class adminEmployeeControl
         STRSQL &= "FROM Employees E "
         STRSQL &= "LEFT JOIN Department D ON E.DepartmentID = D.DepartmentID "
 
+
+
         If searchText.Trim() <> "" Then
             STRSQL &= "WHERE E.FirstName LIKE '%" & Replace(searchText, "'", "''") & "%' "
             STRSQL &= "OR E.LastName LIKE '%" & Replace(searchText, "'", "''") & "%' "
+            STRSQL &= "OR E.ContactNo LIKE '%" & Replace(searchText, "'", "''") & "%' "
+            STRSQL &= "OR E.Email LIKE '%" & Replace(searchText, "'", "''") & "%' "
             STRSQL &= "OR E.Position LIKE '%" & Replace(searchText, "'", "''") & "%' "
             STRSQL &= "OR D.DepartmentName LIKE '%" & Replace(searchText, "'", "''") & "%' "
         End If
+
+
+
 
         STRSQL &= "ORDER BY E.EmployeeID DESC"
 
@@ -131,11 +140,11 @@ Public Class adminEmployeeControl
 
             Dim item As New ListViewItem(RST.Fields("EmployeeID").Value.ToString())
             item.SubItems.Add(fullName)
-            item.SubItems.Add(RST.Fields("Position").Value.ToString())
-            item.SubItems.Add(RST.Fields("DepartmentName").Value.ToString())
             item.SubItems.Add(RST.Fields("ContactNo").Value.ToString())
             item.SubItems.Add(RST.Fields("Email").Value.ToString())
             item.SubItems.Add(RST.Fields("SalaryRate").Value.ToString())
+            item.SubItems.Add(RST.Fields("Position").Value.ToString())
+            item.SubItems.Add(RST.Fields("DepartmentName").Value.ToString())
             item.SubItems.Add(RST.Fields("EmployeeStatus").Value.ToString())
 
             lvEmployees.Items.Add(item)
