@@ -67,7 +67,7 @@ Public Class Form1
 
         Return path
     End Function
-    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
+    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click, Label4.Click
 
     End Sub
 
@@ -79,7 +79,7 @@ Public Class Form1
 
     Private Sub TextBox2_TextChanged(sender As Object, e As EventArgs) Handles password.TextChanged
         Button3.BringToFront()
-        Button4.BringToFront()
+        Button5.BringToFront()
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -90,7 +90,7 @@ Public Class Form1
         MakeButtonRounded(Button1, 8)
 
         Button3.BringToFront()
-        Button4.BringToFront()
+        Button5.BringToFront()
 
     End Sub
 
@@ -175,13 +175,13 @@ Public Class Form1
     End Sub
 
 
-    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
         If password.PasswordChar = "*"c Then
             Button3.BringToFront()
             ' In VB, setting PasswordChar to ControlChars.NullChar or Chr(0) reveals the text
             password.PasswordChar = ControlChars.NullChar
 
-            Button4.Visible = False
+            Button5.Visible = False
             Button3.Visible = True
             Button3.BringToFront()
 
@@ -192,20 +192,18 @@ Public Class Form1
     ' Handler for the button that hides the password
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         If password.PasswordChar = ControlChars.NullChar Then
-            Button4.BringToFront()
+            Button5.BringToFront()
             password.PasswordChar = "*"c
 
 
             Button3.Visible = False
-            Button4.Visible = True
-            Button4.BringToFront()
+            Button5.Visible = True
+            Button5.BringToFront()
 
             password.Focus()
 
         End If
     End Sub
 
-    Private Sub Label2_Click(sender As Object, e As EventArgs)
 
-    End Sub
 End Class

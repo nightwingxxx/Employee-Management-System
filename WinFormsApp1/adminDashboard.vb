@@ -41,4 +41,11 @@
         Return CInt(RST.Fields(0).Value)
     End Function
 
+    Private Sub lblActiveEmployees_Click(sender As Object, e As EventArgs) Handles lblActiveEmployees.Click
+
+    End Sub
+
+    Private Sub Label3_Click(sender As Object, e As EventArgs) Handles Label3.Click
+
+    End Sub
 End Class
